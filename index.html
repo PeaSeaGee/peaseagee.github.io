@@ -9,6 +9,20 @@
         <link rel="manifest" href="site.webmanifest">
         <!-- generated at https://favicon.io/favicon-generator/ -->
         <script src="scripts/htmx.min.js"></script>
+        <script>
+            function shuffleJokes() {
+                const jokeList = ["joke01.txt","joke02.txt","joke03.txt","joke04.txt","joke05.txt","joke06.txt"];
+                const jokeCount = jokeList.length;
+                var currJoke = "joke01.txt"; // default value
+                var randomIndex = Math.floor(Math.random() * jokeCount);
+                console.log("Joke index: ", randomIndex);
+                currJoke = jokeList[randomIndex];
+                console.log("New Joke", currJoke);
+                var buttonElement = document.getElementById("clicked");
+                buttonElement.setAttribute("hx-get",currJoke);
+                return;
+            }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -36,7 +50,7 @@
             <div style="height: 20%;width: 100%">&nbsp;</div>
             <div class="row">
                 <div class="nine columns">&nbsp;</div>
-                <div class="three column" style="text-align:right;"><a hx-get="joke01.txt" hx-target="#thenet" >&pi;</a><br/><div id="thenet"></div></div>
+                <div class="three column" style="text-align:right;"><a hx-get="joke01.txt" hx-target="#thenet" id="clicked" hx-on:click="shuffleJokes()">&pi;</a><br/><div id="thenet"></div></div>
             </div>
         </div>
     </body>
