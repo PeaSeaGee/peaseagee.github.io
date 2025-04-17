@@ -13,6 +13,9 @@
             function shuffleJokes() {
                 const jokeList = ["joke01.txt","joke02.txt","joke03.txt","joke04.txt","joke05.txt","joke06.txt"];
                 const jokeCount = jokeList.length;
+                // clear old joke
+                var thenetEl=document.getElementById("thenet");
+                thenetEl.textContent("");
                 var currJoke = "joke01.txt"; // default value
                 var randomIndex = Math.floor(Math.random() * jokeCount);
                 console.log("Joke index: ", randomIndex);
