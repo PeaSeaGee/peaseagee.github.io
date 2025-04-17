@@ -10,20 +10,27 @@
         <!-- generated at https://favicon.io/favicon-generator/ -->
         <script src="scripts/htmx.min.js"></script>
         <script>
-            function shuffleJokes() {
+            function getRandomJoke() {
                 const jokeList = ["joke01.txt","joke02.txt","joke03.txt","joke04.txt","joke05.txt","joke06.txt"];
-                const jokeCount = jokeList.length;
-                // clear old joke
-                var thenetEl=document.getElementById("thenet");
-                thenetEl.textContent = "";
-                var currJoke = "joke01.txt"; // default value
-                var randomIndex = Math.floor(Math.random() * jokeCount);
+                const randomIndex = Math.floor(Math.random() * jokeList.length);
                 console.log("Joke index: ", randomIndex);
-                currJoke = jokeList[randomIndex];
-                console.log("New Joke", currJoke);
-                var buttonElement = document.getElementById("clicked");
-                buttonElement.setAttribute("hx-get",currJoke);
-                return;
+                const selectedJoke = jokeList[randomIndex];
+                console.log("Selected Joke", selectedJoke);
+                
+                // Clear previous joke
+                document.getElementById("thenet").textContent = "";
+                
+                // Fetch and display the joke
+                fetch(selectedJoke)
+                    .then(response => response.text())
+                    .then(joke => {
+                        document.getElementById("thenet").textContent = joke;
+                    })
+                    .catch(error => {
+                        console.error("Error fetching joke:", error);
+                    });
+                
+                return false; // Prevent default behavior
             }
         </script>
     </head>
@@ -33,7 +40,7 @@
         <section class="header">
             <div class="row">
                 <!--<div class="one column">&nbsp;</div>-->
-                <div class="twelve columns" style="font-variant: small-caps;""><h1>Peter C. Gravelle</h1></div>
+                <div class="twelve columns" style="font-variant: small-caps;"><h1>Peter C. Gravelle</h1></div>
             </div>
             <div class="row">
                 <div class="one columns">&nbsp;</div>
@@ -53,7 +60,7 @@
             <div style="height: 20%;width: 100%">&nbsp;</div>
             <div class="row">
                 <div class="nine columns">&nbsp;</div>
-                <div class="three columns" style="text-align:right;"><a hx-get="joke01.txt" hx-target="#thenet" id="clicked" hx-on::before-request="shuffleJokes()">&pi;</a><br/><div id="thenet"></div></div>
+                <div class="three columns" style="text-align:right;"><a href="#" onclick="return getRandomJoke()">&pi;</a><br/><div id="thenet"></div></div>
             </div>
         </div>
     </body>
