@@ -15,7 +15,7 @@
                 const jokeCount = jokeList.length;
                 // clear old joke
                 var thenetEl=document.getElementById("thenet");
-                thenetEl.textContent("");
+                thenetEl.textContent = "";
                 var currJoke = "joke01.txt"; // default value
                 var randomIndex = Math.floor(Math.random() * jokeCount);
                 console.log("Joke index: ", randomIndex);
