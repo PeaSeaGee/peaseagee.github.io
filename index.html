@@ -18,7 +18,7 @@
                 console.log("Selected Joke", selectedJoke);
                 
                 // Clear previous joke
-                document.getElementById("thenet").textContent = "";
+                clearJoke();
                 
                 // Fetch and display the joke
                 fetch(selectedJoke)
@@ -31,6 +31,10 @@
                     });
                 
                 return false; // Prevent default behavior
+            }
+            function clearJoke() {
+                document.getElementById("thenet").textContent = "";
+                return;
             }
         </script>
     </head>
@@ -60,7 +64,7 @@
             <div style="height: 20%;width: 100%">&nbsp;</div>
             <div class="row">
                 <div class="nine columns">&nbsp;</div>
-                <div class="three columns" style="text-align:right;"><a href="#" onclick="return getRandomJoke()">&pi;</a><br/><div id="thenet"></div></div>
+                <div class="three columns" style="text-align:right;"><a href="#" onclick="return getRandomJoke()">&pi;</a><br/><div id="thenet" onclick="clearJoke()"></div></div>
             </div>
         </div>
     </body>
