@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PCG Blog</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content on PCG Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 May 2025 19:12:41 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HelloWorld</title>
+      <link>http://localhost:1313/blog/blog/helloworld/</link>
+      <pubDate>Sat, 17 May 2025 19:12:41 -0400</pubDate>
+      <guid>http://localhost:1313/blog/blog/helloworld/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
